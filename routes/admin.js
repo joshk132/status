@@ -11,12 +11,12 @@ router.get("/", middleware.isLoggedIn, (req, res) => {
     res.render("admin/index");
 });
 
-router.get("/status/new",(req, res) => {
+router.get("/status/new", middleware.isLoggedIn, (req, res) => {
     res.render("admin/new");
 });
 
 
-router.post("/new", middleware.isLoggedIn, (req, res) => {
+router.post("/status/new", middleware.isLoggedIn, (req, res) => {
     var type = req.body.type;
     var message = req.body.message;
     var author = {
@@ -29,6 +29,7 @@ router.post("/new", middleware.isLoggedIn, (req, res) => {
             throw(err);
         } else {
             //redirect back to new status page
+            console.log(newlyCreated);
             res.redirect("/admin/status/new");
         }
     });
