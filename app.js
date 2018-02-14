@@ -42,7 +42,7 @@ app.use(function(req, res, next){
 
 app.use("/", authRoutes);
 app.use("/", statusRoutes);
-app.use("/", adminRoutes);
+app.use("/admin", adminRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Status Server Running");
