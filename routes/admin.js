@@ -29,7 +29,6 @@ router.post("/status/new", middleware.isLoggedIn, (req, res) => {
             throw(err);
         } else {
             //redirect back to new status page
-            console.log(newlyCreated);
             res.redirect("/admin/status/new");
         }
     });
