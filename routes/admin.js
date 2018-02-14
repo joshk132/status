@@ -5,17 +5,16 @@ var middleware = require("../middleware");
 //models
 var Status = require("../models/status");
 
-//root route
-router.get("/", function(req, res){
-    res.render("index");
-});
-
-
 
 //root admin route
-router.get("/admin", middleware.isLoggedIn, (req, res) => {
+router.get("/", middleware.isLoggedIn, (req, res) => {
     res.render("admin/index");
 });
+
+router.get("/status/new",(req, res) => {
+    res.render("admin/new");
+});
+
 
 router.post("/new", middleware.isLoggedIn, (req, res) => {
     var type = req.body.type;
