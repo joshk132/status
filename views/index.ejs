@@ -6,19 +6,205 @@
              <h1>Welcome To Status Node!</h1>
          </div>
      </header>
-     
-     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+     <% var ctr = 0 %>
+      <div class="container">
       <% statuses.forEach(function(status){ %>
-      <div class="col-md-2"></div>
-       <div class="col-md-8">
-         <div class="alert alert-success" role="alert">
-           <strong><%= status.type %></strong><br> <%= status.message %>
-         </div>
+      <% ctr ++ %>
+    
+         <ul class="timeline">
+          <% if (status.type == 'Successful Solution' && ctr % 2 == 0) { %>
+          <li>
+           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+            <div class="timeline-panel">
+             <div class="timeline-heading">
+              <h4 class="timeline-title"><%= status.type %></h4>
+              <p><small class="text-muted"><i class="fas fa-check-circle"></i> 11 hours ago via Twitter</small></p>
+             </div>
+             <div class="timeline-body">
+              <p><%= status.message %></p>             
+             </div>
+            </div>
+           </li>
+           <% } else if (status.type == 'Successful Solution' && Math.abs(ctr % 2) == 1){ %>
+           <li class="timeline-inverted">
+            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+             <div class="timeline-panel">
+              <div class="timeline-heading">
+               <h4 class="timeline-title"><%= status.type %></h4>
+              </div>
+              <div class="timeline-body">
+               <p><%= status.message %></p>
+              </div>
+            </div>
+           </li>
+           <% } %>
+           
+           <% if (status.type == 'Planned Maintenance' && ctr % 2 == 0) { %>
+          <li>
+           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+            <div class="timeline-panel">
+             <div class="timeline-heading">
+              <h4 class="timeline-title"><%= status.type %></h4>
+              <p><small class="text-muted"><i class="fas fa-check-circle"></i> 11 hours ago via Twitter</small></p>
+             </div>
+             <div class="timeline-body">
+              <p><%= status.message %></p>             
+             </div>
+            </div>
+           </li>
+           <% } else if (status.type == 'Planned Maintenance' && Math.abs(ctr % 2) == 1){ %>
+           <li class="timeline-inverted">
+            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+             <div class="timeline-panel">
+              <div class="timeline-heading">
+               <h4 class="timeline-title"><%= status.type %></h4>
+              </div>
+              <div class="timeline-body">
+               <p><%= status.message %></p>
+              </div>
+            </div>
+           </li>
+           <% } %>
+           
+           <% if (status.type == 'Unplanned Maintenance' && ctr % 2 == 0) { %>
+          <li>
+           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+            <div class="timeline-panel">
+             <div class="timeline-heading">
+              <h4 class="timeline-title"><%= status.type %></h4>
+              <p><small class="text-muted"><i class="fas fa-check-circle"></i> 11 hours ago via Twitter</small></p>
+             </div>
+             <div class="timeline-body">
+              <p><%= status.message %></p>             
+             </div>
+            </div>
+           </li>
+           <% } else if (status.type == 'Unplanned Maintenance' && Math.abs(ctr % 2) == 1){ %>
+           <li class="timeline-inverted">
+            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+             <div class="timeline-panel">
+              <div class="timeline-heading">
+               <h4 class="timeline-title"><%= status.type %></h4>
+              </div>
+              <div class="timeline-body">
+               <p><%= status.message %></p>
+              </div>
+            </div>
+           </li>
+           <% } %>
+           
+           <% if (status.type == 'Incident' && ctr % 2 == 0) { %>
+          <li>
+           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+            <div class="timeline-panel">
+             <div class="timeline-heading">
+              <h4 class="timeline-title"><%= status.type %></h4>
+              <p><small class="text-muted"><i class="fas fa-check-circle"></i> 11 hours ago via Twitter</small></p>
+             </div>
+             <div class="timeline-body">
+              <p><%= status.message %></p>             
+             </div>
+            </div>
+           </li>
+           <% } else if (status.type == 'Incident' && Math.abs(ctr % 2) == 1){ %>
+           <li class="timeline-inverted">
+            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+             <div class="timeline-panel">
+              <div class="timeline-heading">
+               <h4 class="timeline-title"><%= status.type %></h4>
+              </div>
+              <div class="timeline-body">
+               <p><%= status.message %></p>
+              </div>
+            </div>
+           </li>
+           <% } %>
+           
+           <% if (status.type == 'Investigating' && ctr % 2 == 0) { %>
+          <li>
+           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+            <div class="timeline-panel">
+             <div class="timeline-heading">
+              <h4 class="timeline-title"><%= status.type %></h4>
+              <p><small class="text-muted"><i class="fas fa-check-circle"></i> 11 hours ago via Twitter</small></p>
+             </div>
+             <div class="timeline-body">
+              <p><%= status.message %></p>             
+             </div>
+            </div>
+           </li>
+           <% } else if (status.type == 'Investigating' && Math.abs(ctr % 2) == 1){ %>
+           <li class="timeline-inverted">
+            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+             <div class="timeline-panel">
+              <div class="timeline-heading">
+               <h4 class="timeline-title"><%= status.type %></h4>
+              </div>
+              <div class="timeline-body">
+               <p><%= status.message %></p>
+              </div>
+            </div>
+           </li>
+           <% } %>
+           
+           <% if (status.type == 'Outage' && ctr % 2 == 0) { %>
+          <li>
+           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+            <div class="timeline-panel">
+             <div class="timeline-heading">
+              <h4 class="timeline-title"><%= status.type %></h4>
+              <p><small class="text-muted"><i class="fas fa-check-circle"></i> 11 hours ago via Twitter</small></p>
+             </div>
+             <div class="timeline-body">
+              <p><%= status.message %></p>             
+             </div>
+            </div>
+           </li>
+           <% } else if (status.type == 'Outage' && Math.abs(ctr % 2) == 1){ %>
+           <li class="timeline-inverted">
+            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+             <div class="timeline-panel">
+              <div class="timeline-heading">
+               <h4 class="timeline-title"><%= status.type %></h4>
+              </div>
+              <div class="timeline-body">
+               <p><%= status.message %></p>
+              </div>
+            </div>
+           </li>
+           <% } %>
+           
+           <% if (status.type == 'Service Interruption' && ctr % 2 == 0) { %>
+          <li>
+           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+            <div class="timeline-panel">
+             <div class="timeline-heading">
+              <h4 class="timeline-title"><%= status.type %></h4>
+              <p><small class="text-muted"><i class="fas fa-check-circle"></i> 11 hours ago via Twitter</small></p>
+             </div>
+             <div class="timeline-body">
+              <p><%= status.message %></p>             
+             </div>
+            </div>
+           </li>
+           <% } else if (status.type == 'Service Interruption' && Math.abs(ctr % 2) == 1){ %>
+           <li class="timeline-inverted">
+            <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
+             <div class="timeline-panel">
+              <div class="timeline-heading">
+               <h4 class="timeline-title"><%= status.type %></h4>
+              </div>
+              <div class="timeline-body">
+               <p><%= status.message %></p>
+              </div>
+            </div>
+           </li>
+           <% } %>
+         </ul>
+        
+         <% }); %>
+        
+         
        </div>
-       <div class="col-md-2"></div>
-       <!--<br><br><br><br><br><br>-->
-      <% }); %>
-    </div>
-</div>
 
 <% include ./partials/footer %>
