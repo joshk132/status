@@ -1,6 +1,8 @@
 var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
+    session = require('express-session'),
+    MongoStore = require('connect-mongo')({ session: session }),
     mongoose    = require("mongoose"),
     flash       = require("connect-flash"),
     passport    = require("passport"),
@@ -22,11 +24,20 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 // PASSPORT CONFIGURATION
-app.use(require("express-session")({
-    secret: "Josh Kirby Master of No Code",
-    resave: false,
-    saveUninitialized: false
+// set session
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 60 * 1000 * 60 // 1 hour
+  },
+  secret: "Josh Kirby Master of No Code",
+  store: new MongoStore({
+    url: "mongodb://localhost/status",
+    auto_reconnect: true
+  })
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
