@@ -3,13 +3,24 @@ var router  = express.Router();
 var middleware = require("../middleware");
 var Status = require("../models/status");
 
+var moment = require('moment');
+moment().format();
+
 //root route
 router.get("/", function(req, res){
-    Status.find({}, function(err, allStatuses){
+        Status.find({}, function(err, allStatuses){
        if(err){
            console.log(err);
        } else {
-          res.render("index", {statuses:allStatuses});
+           
+          var diff = new Array();
+           var i = 0;
+           while(i < allStatuses.length){
+               diff[i] = moment(allStatuses[i].date).fromNow();
+               i++;
+           }
+          
+          res.render("index", {status:allStatuses, difference:diff});
        }
     });
 });

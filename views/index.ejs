@@ -8,208 +8,208 @@
      </header>
      <% var ctr = 0 %>
       <div class="container">
-      <% statuses.forEach(function(status){ %>
+      <% for (var i=0; i<status.length; i++){ %>
       <% ctr ++ %>
     
          <ul class="timeline">
-          <% if (status.type == 'Successful Solution' && ctr % 2 == 0) { %>
+          <% if (status[i].type == 'Successful Solution' && ctr % 2 == 0) { %>
           <li>
            <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
-              <h4 class="timeline-title"><%= status.type %></h4>
-              <p><small class="text-muted">11 hours ago</small></p>
+              <h4 class="timeline-title"><%= status[i].type %></h4>
+              <p><small class="text-muted"><%= difference[i] %></small></p>
              </div>
              <div class="timeline-body">
-              <p><%= status.message %></p>             
+              <p><%= status[i].message %></p>             
              </div>
             </div>
            </li>
-           <% } else if (status.type == 'Successful Solution' && Math.abs(ctr % 2) == 1){ %>
+           <% } else if (status[i].type == 'Successful Solution' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
             <div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
-               <h4 class="timeline-title"><%= status.type %></h4>
-               <p><small class="text-muted">11 hours ago</small></p>
+               <h4 class="timeline-title"><%= status[i].type %></h4>
+               <p><small class="text-muted"><%= difference[i] %></small></p>
               </div>
               <div class="timeline-body">
-               <p><%= status.message %></p>
+               <p><%= status[i].message %></p>
               </div>
             </div>
            </li>
            <% } %>
            
-           <% if (status.type == 'Planned Maintenance' && ctr % 2 == 0) { %>
+           <% if (status[i].type == 'Planned Maintenance' && ctr % 2 == 0) { %>
           <li>
            <div class="timeline-badge"><i class="glyphicon glyphicon-info-sign"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
-              <h4 class="timeline-title"><%= status.type %></h4>
-              <p><small class="text-muted">11 hours ago</small></p>
+              <h4 class="timeline-title"><%= status[i].type %></h4>
+              <p><small class="text-muted"><%= difference[i] %></small></p>
              </div>
              <div class="timeline-body">
-              <p><%= status.message %></p>             
+              <p><%= status[i].message %></p>             
              </div>
             </div>
            </li>
-           <% } else if (status.type == 'Planned Maintenance' && Math.abs(ctr % 2) == 1){ %>
+           <% } else if (status[i].type == 'Planned Maintenance' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
             <div class="timeline-badge warning"><i class="glyphicon glyphicon-info-sign"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
-               <h4 class="timeline-title"><%= status.type %></h4>
-               <p><small class="text-muted">11 hours ago</small></p>
+               <h4 class="timeline-title"><%= status[i].type %></h4>
+               <p><small class="text-muted"><%= difference[i] %></small></p>
               </div>
               <div class="timeline-body">
-               <p><%= status.message %></p>
+               <p><%= status[i].message %></p>
               </div>
             </div>
            </li>
            <% } %>
            
-           <% if (status.type == 'Unplanned Maintenance' && ctr % 2 == 0) { %>
+           <% if (status[i].type == 'Unplanned Maintenance' && ctr % 2 == 0) { %>
           <li>
            <div class="timeline-badge"><i class="glyphicon glyphicon-alert"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
-              <h4 class="timeline-title"><%= status.type %></h4>
-              <p><small class="text-muted">11 hours ago</small></p>
+              <h4 class="timeline-title"><%= status[i].type %></h4>
+              <p><small class="text-muted"><%= difference[i] %></small></p>
              </div>
              <div class="timeline-body">
-              <p><%= status.message %></p>             
+              <p><%= status[i].message %></p>             
              </div>
             </div>
            </li>
-           <% } else if (status.type == 'Unplanned Maintenance' && Math.abs(ctr % 2) == 1){ %>
+           <% } else if (status[i].type == 'Unplanned Maintenance' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
             <div class="timeline-badge warning"><i class="glyphicon glyphicon-alert"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
-               <h4 class="timeline-title"><%= status.type %></h4>
-               <p><small class="text-muted">11 hours ago</small></p>
+               <h4 class="timeline-title"><%= status[i].type %></h4>
+               <p><small class="text-muted"><%= difference[i] %></small></p>
               </div>
               <div class="timeline-body">
-               <p><%= status.message %></p>
+               <p><%= status[i].message %></p>
               </div>
             </div>
            </li>
            <% } %>
            
-           <% if (status.type == 'Incident' && ctr % 2 == 0) { %>
+           <% if (status[i].type == 'Incident' && ctr % 2 == 0) { %>
           <li>
            <div class="timeline-badge"><i class="glyphicon glyphicon-option-horizontal"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
-              <h4 class="timeline-title"><%= status.type %></h4>
-              <p><small class="text-muted">11 hours ago</small></p>
+              <h4 class="timeline-title"><%= status[i].type %></h4>
+              <p><small class="text-muted"><%= difference[i] %></small></p>
              </div>
              <div class="timeline-body">
-              <p><%= status.message %></p>             
+              <p><%= status[i].message %></p>             
              </div>
             </div>
            </li>
-           <% } else if (status.type == 'Incident' && Math.abs(ctr % 2) == 1){ %>
+           <% } else if (status[i].type == 'Incident' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
             <div class="timeline-badge warning"><i class="glyphicon glyphicon-option-horizontal"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
-               <h4 class="timeline-title"><%= status.type %></h4>
-               <p><small class="text-muted">11 hours ago</small></p>
+               <h4 class="timeline-title"><%= status[i].type %></h4>
+               <p><small class="text-muted"><%= difference[i] %></small></p>
               </div>
               <div class="timeline-body">
-               <p><%= status.message %></p>
+               <p><%= status[i].message %></p>
               </div>
             </div>
            </li>
            <% } %>
            
-           <% if (status.type == 'Investigating' && ctr % 2 == 0) { %>
+           <% if (status[i].type == 'Investigating' && ctr % 2 == 0) { %>
           <li>
            <div class="timeline-badge"><i class="glyphicon glyphicon-eye-open"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
-              <h4 class="timeline-title"><%= status.type %></h4>
-              <p><small class="text-muted">11 hours ago</small></p>
+              <h4 class="timeline-title"><%= status[i].type %></h4>
+              <p><small class="text-muted"><%= difference[i] %></small></p>
              </div>
              <div class="timeline-body">
-              <p><%= status.message %></p>             
+              <p><%= status[i].message %></p>             
              </div>
             </div>
            </li>
-           <% } else if (status.type == 'Investigating' && Math.abs(ctr % 2) == 1){ %>
+           <% } else if (status[i].type == 'Investigating' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
             <div class="timeline-badge warning"><i class="glyphicon glyphicon-eye-open"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
-               <h4 class="timeline-title"><%= status.type %></h4>
-               <p><small class="text-muted">11 hours ago</small></p>
+               <h4 class="timeline-title"><%= status[i].type %></h4>
+               <p><small class="text-muted"><%= difference[i] %></small></p>
               </div>
               <div class="timeline-body">
-               <p><%= status.message %></p>
+               <p><%= status[i].message %></p>
               </div>
             </div>
            </li>
            <% } %>
            
-           <% if (status.type == 'Outage' && ctr % 2 == 0) { %>
+           <% if (status[i].type == 'Outage' && ctr % 2 == 0) { %>
           <li>
            <div class="timeline-badge"><i class="glyphicon glyphicon-remove-sign"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
-              <h4 class="timeline-title"><%= status.type %></h4>
-              <p><small class="text-muted">11 hours ago</small></p>
+              <h4 class="timeline-title"><%= status[i].type %></h4>
+              <p><small class="text-muted"><%= difference[i] %></small></p>
              </div>
              <div class="timeline-body">
-              <p><%= status.message %></p>
+              <p><%= status[i].message %></p>
              </div>
             </div>
            </li>
-           <% } else if (status.type == 'Outage' && Math.abs(ctr % 2) == 1){ %>
+           <% } else if (status[i].type == 'Outage' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
             <div class="timeline-badge warning"><i class="glyphicon glyphicon-remove-sign"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
-               <h4 class="timeline-title"><%= status.type %></h4>
-               <p><small class="text-muted">11 hours ago</small></p>
+               <h4 class="timeline-title"><%= status[i].type %></h4>
+               <p><small class="text-muted"><%= difference[i] %></small></p>
               </div>
               <div class="timeline-body">
-               <p><%= status.message %></p>
+               <p><%= status[i].message %></p>
               </div>
             </div>
            </li>
            <% } %>
            
-           <% if (status.type == 'Service Interruption' && ctr % 2 == 0) { %>
+           <% if (status[i].type == 'Service Interruption' && ctr % 2 == 0) { %>
           <li>
            <div class="timeline-badge"><i class="glyphicon glyphicon-flag"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
-              <h4 class="timeline-title"><%= status.type %></h4>
-              <p><small class="text-muted">11 hours ago</small></p>
+              <h4 class="timeline-title"><%= status[i].type %></h4>
+              <p><small class="text-muted"><%= difference[i] %></small></p>
              </div>
              <div class="timeline-body">
-              <p><%= status.message %></p>             
+              <p><%= status[i].message %></p>             
              </div>
             </div>
            </li>
-           <% } else if (status.type == 'Service Interruption' && Math.abs(ctr % 2) == 1){ %>
+           <% } else if (status[i].type == 'Service Interruption' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
             <div class="timeline-badge warning"><i class="glyphicon glyphicon-flag"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
-               <h4 class="timeline-title"><%= status.type %></h4>
-               <p><small class="text-muted">11 hours ago</small></p>
+               <h4 class="timeline-title"><%= status[i].type %></h4>
+               <p><small class="text-muted"><%= difference[i] %></small></p>
               </div>
               <div class="timeline-body">
-               <p><%= status.message %></p>
+               <p><%= status[i].message %></p>
               </div>
             </div>
            </li>
            <% } %>
          </ul>
         
-         <% }); %>
+         <% } %>
         
          
        </div>

@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var statusSchema = new mongoose.Schema({
    type: String,
    message: String,
+   date: Number,
    author: {
       id: {
          type: mongoose.Schema.Types.ObjectId,
