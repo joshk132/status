@@ -19,11 +19,13 @@ router.get("/status/new", middleware.isLoggedIn, (req, res) => {
 router.post("/status/new", middleware.isLoggedIn, (req, res) => {
     var type = req.body.type;
     var message = req.body.message;
+    var date = Date.now();
     var author = {
         id: req.user._id,
         username: req.user.username
     };
-    var newStatus = {type:type, message:message, author:author};
+    var newStatus = {type:type, message:message, author:author, date:date};
+    // var newStatus = {type:type, message:message, author:author};
     Status.create(newStatus, function(err, newlyCreated){
         if(err){
             throw(err);
@@ -32,6 +34,7 @@ router.post("/status/new", middleware.isLoggedIn, (req, res) => {
             res.redirect("/admin/status/new");
         }
     });
+    
 });
 
 
