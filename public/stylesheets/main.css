@@ -133,7 +133,7 @@ textarea {
             top: 16px;
             left: 50%;
             margin-left: -25px;
-            background-color: #999999;
+            background-color: #0000FF;
             z-index: 100;
             border-top-right-radius: 50%;
             border-top-left-radius: 50%;
@@ -168,7 +168,7 @@ textarea {
 }
 
 .timeline-badge.warning {
-    background-color: #f0ad4e !important;
+    background-color: #FFA500 !important;
 }
 
 .timeline-badge.danger {
@@ -231,4 +231,18 @@ textarea {
 
 #timeline {
    margin: auto;
+}
+
+.jumbotron {
+    background-color:#003ACF !important; 
+}
+
+.branding {
+    color: lightblue;
+    float: left;
+}
+
+.updates {
+    margin-top: 6px;
+    float: right;
 }

@@ -1,11 +1,73 @@
 <% include ./partials/header %> 
 
  <div class="container">
-     <header class="jumbotron">
-         <div class="container">
-             <h1>Welcome To Status Node!</h1>
-         </div>
+     <header>
+      <div class="row">
+       <div class="col-md-6">
+        <h3 class="branding"><a href="/">Status Node</a></h3>
+        <a ></a>
+       </div>
+       <div class="col-md-6">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-lg btn-info updates" data-toggle="modal" data-target="#subscribe">Subscribe to updates</button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="subscribe" tabindex="-1" role="dialog" aria-labelledby="subscribe" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              </div>
+              <div class="modal-body">
+                
+                <!-- Begin MailChimp Signup Form -->
+                <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+                <style type="text/css">
+                	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+                	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                </style>
+                <div id="mc_embed_signup">
+                <form action="https://phantomam.us17.list-manage.com/subscribe/post?u=12f97e5dd4e0793c17e4f789b&amp;id=2a6cd6ecc8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                	<label for="mce-EMAIL">Subscribe to our update mailing list</label>
+                	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_12f97e5dd4e0793c17e4f789b_2a6cd6ecc8" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                    </div>
+                </form>
+                </div>
+        
+        <!--End mc_embed_signup-->
+        
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+        
+        
+        
+       </div>
+      </div>
+      <div class="jumbotron">
+       <div class="container">
+        <div class="alert alert-success" role="alert">
+         All Systems Operational
+        </div>
+       </div>
+      </div>
      </header>
+     
+     
+     
+     
+     
      <% var ctr = 0 %>
       <div class="container">
       <% for (var i=0; i<status.length; i++){ %>
@@ -14,7 +76,7 @@
          <ul class="timeline">
           <% if (status[i].type == 'Successful Solution' && ctr % 2 == 0) { %>
           <li>
-           <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+           <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
               <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -27,7 +89,7 @@
            </li>
            <% } else if (status[i].type == 'Successful Solution' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
-            <div class="timeline-badge warning"><i class="glyphicon glyphicon-check"></i></div>
+            <div class="timeline-badge success"><i class="glyphicon glyphicon-check"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
                <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -42,7 +104,7 @@
            
            <% if (status[i].type == 'Planned Maintenance' && ctr % 2 == 0) { %>
           <li>
-           <div class="timeline-badge"><i class="glyphicon glyphicon-info-sign"></i></div>
+           <div class="timeline-badge primary"><i class="glyphicon glyphicon-info-sign"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
               <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -55,7 +117,7 @@
            </li>
            <% } else if (status[i].type == 'Planned Maintenance' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
-            <div class="timeline-badge warning"><i class="glyphicon glyphicon-info-sign"></i></div>
+            <div class="timeline-badge primary"><i class="glyphicon glyphicon-info-sign"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
                <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -70,7 +132,7 @@
            
            <% if (status[i].type == 'Unplanned Maintenance' && ctr % 2 == 0) { %>
           <li>
-           <div class="timeline-badge"><i class="glyphicon glyphicon-alert"></i></div>
+           <div class="timeline-badge warning"><i class="glyphicon glyphicon-alert"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
               <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -98,7 +160,7 @@
            
            <% if (status[i].type == 'Incident' && ctr % 2 == 0) { %>
           <li>
-           <div class="timeline-badge"><i class="glyphicon glyphicon-option-horizontal"></i></div>
+           <div class="timeline-badge danger"><i class="glyphicon glyphicon-option-horizontal"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
               <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -111,7 +173,7 @@
            </li>
            <% } else if (status[i].type == 'Incident' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
-            <div class="timeline-badge warning"><i class="glyphicon glyphicon-option-horizontal"></i></div>
+            <div class="timeline-badge danger"><i class="glyphicon glyphicon-option-horizontal"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
                <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -126,7 +188,7 @@
            
            <% if (status[i].type == 'Investigating' && ctr % 2 == 0) { %>
           <li>
-           <div class="timeline-badge"><i class="glyphicon glyphicon-eye-open"></i></div>
+           <div class="timeline-badge info"><i class="glyphicon glyphicon-eye-open"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
               <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -139,7 +201,7 @@
            </li>
            <% } else if (status[i].type == 'Investigating' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
-            <div class="timeline-badge warning"><i class="glyphicon glyphicon-eye-open"></i></div>
+            <div class="timeline-badge info"><i class="glyphicon glyphicon-eye-open"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
                <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -154,7 +216,7 @@
            
            <% if (status[i].type == 'Outage' && ctr % 2 == 0) { %>
           <li>
-           <div class="timeline-badge"><i class="glyphicon glyphicon-remove-sign"></i></div>
+           <div class="timeline-badge danger"><i class="glyphicon glyphicon-remove-sign"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
               <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -167,7 +229,7 @@
            </li>
            <% } else if (status[i].type == 'Outage' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
-            <div class="timeline-badge warning"><i class="glyphicon glyphicon-remove-sign"></i></div>
+            <div class="timeline-badge danger"><i class="glyphicon glyphicon-remove-sign"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
                <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -182,7 +244,7 @@
            
            <% if (status[i].type == 'Service Interruption' && ctr % 2 == 0) { %>
           <li>
-           <div class="timeline-badge"><i class="glyphicon glyphicon-flag"></i></div>
+           <div class="timeline-badge info"><i class="glyphicon glyphicon-flag"></i></div>
             <div class="timeline-panel">
              <div class="timeline-heading">
               <h4 class="timeline-title"><%= status[i].type %></h4>
@@ -195,7 +257,7 @@
            </li>
            <% } else if (status[i].type == 'Service Interruption' && Math.abs(ctr % 2) == 1){ %>
            <li class="timeline-inverted">
-            <div class="timeline-badge warning"><i class="glyphicon glyphicon-flag"></i></div>
+            <div class="timeline-badge info"><i class="glyphicon glyphicon-flag"></i></div>
              <div class="timeline-panel">
               <div class="timeline-heading">
                <h4 class="timeline-title"><%= status[i].type %></h4>
