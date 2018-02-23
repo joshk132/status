@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 
 var statusSchema = new mongoose.Schema({
    type: String,
+   service: String,
    message: String,
    date: Number,
    author: {
