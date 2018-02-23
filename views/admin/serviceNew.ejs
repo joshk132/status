@@ -1,0 +1,20 @@
+<% include ../partials/admin/header %> 
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Create Service</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/admin/service/new" method="POST">
+                <div class="form-group">
+                    <label for="message">Status Message</label>
+                    <input type="text" class="form-control"  placeholder="Service Name" name="service">
+                  </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/admin/footer %>
