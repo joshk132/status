@@ -38,17 +38,13 @@
                     </div>
                 </form>
                 </div>
-        
-        <!--End mc_embed_signup-->
-        
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+                   </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
        </div>
       </div>
       <div class="jumbotron">
@@ -60,10 +56,12 @@
       </div>
      </header>
      
-     
-     
-     
-     
+     <ul class="list-group">
+       <% for (var i=0; i<services.length; i++){ %>
+       <li class="list-group-item list-group-item-success"><h3><%= services[i].service %></h3></li>
+       <% } %>
+    </ul>
+
      <% var ctr = 0 %>
       <div class="container">
       <% for (var i=0; i<status.length; i++){ %>

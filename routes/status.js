@@ -2,6 +2,7 @@ var express = require("express");
 var router  = express.Router();
 var middleware = require("../middleware");
 var Status = require("../models/status");
+var Service = require("../models/service");
 
 var moment = require('moment');
 moment().format();
@@ -19,10 +20,16 @@ router.get("/", function(req, res){
                diff[i] = moment(allStatuses[i].date).fromNow();
                i++;
            }
+        Service.find({}, (err, allServices) => {
+            if(err) console.log(err);
+            res.render("index", {status:allStatuses, difference:diff, services:allServices});
+        });
+        
           
-          res.render("index", {status:allStatuses, difference:diff});
+          
        }
     });
+    
 });
 
 
