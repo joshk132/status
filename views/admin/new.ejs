@@ -19,10 +19,10 @@
                 </div>
                 <div class="form-group">
                     <select name="type" class="selectpicker" required>
-                        <option value="" disabled selected>Status Type</option>
-                        {%  for service in services  %}
-                            <option value="{{services.service}}">{{services.service}}</option>
-                        {% endfor %}
+                        <option value="" disabled selected>Service</option>
+                        <% for(var i=0; i<services.length; i++) {%>
+                           <option value="<%= services[i].service %>"><%= services[i].service %></option>
+                        <% } %>
                     </select>
                 </div>
                 <div class="form-group">
