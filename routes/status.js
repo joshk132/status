@@ -22,7 +22,20 @@ router.get("/", function(req, res){
            }
         Service.find({}, (err, allServices) => {
             if(err) console.log(err);
-            res.render("index", {status:allStatuses, difference:diff, services:allServices});
+            var systems = true;
+            var e = 0;
+            while (e < allServices.length){
+                if(allServices[e].state == 'Outage') {
+                    systems = false;
+                } 
+                e++;
+            }
+            if (systems == true){
+                systems = "All systems operational";
+            } else if (systems == false){
+                systems = "We are experiencing some outages at the moment";
+            }
+            res.render("index", {status:allStatuses, difference:diff, services:allServices, systems:systems});
         });
         
           
