@@ -56,11 +56,41 @@
       </div>
      </header>
      
-     <ul class="list-group">
-       <% for (var i=0; i<services.length; i++){ %>
-       <li class="list-group-item list-group-item-success"><h3><%= services[i].service %></h3></li>
-       <% } %>
-    </ul>
+     <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+       <ul class="list-group">
+        <li class="list-group-item list-group-item-info text-center"><h3>Services</li>
+       </ul>
+      </div>
+      <div class="col-md-3"></div>
+     </div>
+     
+     <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-3">
+       <ul class="list-group">
+        <% for (var i=0; i<services.length; i++){ %>
+         <li class="list-group-item list-group-item-success"><h3><%= services[i].service %></h3></li>
+        <% } %>
+       </ul>
+      </div>
+      <div class="col-md-3">
+       <ul class="list-group">
+        <% for (var i=0; i<services.length; i++){ %>
+        <% if (services[i].state == 'Operational') {%>
+         <li class="list-group-item list-group-item-success"><h3><%= services[i].state %></h3></li>
+         <% } %>
+         <% if (services[i].state == 'Outage') {%>
+         <li class="list-group-item list-group-item-danger"><h3><%= services[i].state %></h3></li>
+         <% } %>
+        <% } %>
+       </ul>
+      </div>
+      <div class="col-md-3"></div>
+     </div>
+     
+     
 
      <% var ctr = 0 %>
       <div class="container">

@@ -67,6 +67,35 @@ router.post("/service/new", middleware.isLoggedIn, (req, res) => {
     
 });
 
+router.get("/service/update", middleware.isLoggedIn, (req, res) => {
+    Service.find({}, (err, allServices) => {
+        if(err) console.log(err);
+        res.render("admin/serviceUpdate", {services:allServices});
+    });
+});
+
+  
+/*router.put("/service/update", middleware.isLoggedIn, (req, res) => {
+    Service.findById(req.body.requestID, function(err, service) {
+        if (err) return (err);
+        service.state = req.body.state;
+        service.save(function(err) {
+            if (err) return (err);
+        });
+    });
+});*/ 
+
+
+router.put("/service/update", middleware.isLoggedIn, (req, res) => {
+    Service.findByIdAndUpdate(req.body.serviceID, req.body.service, function(err, updatedCampground){
+       if(err){
+           res.redirect("/admin/service/update");
+       } else {
+           //redirect somewhere(show page)
+           res.redirect("/admin/");
+       }
+    });
+});
 
 
 module.exports = router;

@@ -1,0 +1,33 @@
+
+                
+<% include ../partials/admin/header %> 
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Create Service</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/admin/service/update?_method=PUT" method="POST">
+                <div class="form-group">
+                    <select name="serviceID" class="selectpicker" required>
+                        <option value="" disabled selected>Service</option>
+                        <% for (var i=0; i<services.length; i++){ %>
+                            <option value="<%= services[i].id %>"><%= services[i].service %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select name="service[state]" class="selectpicker" required>
+                        <option value="" disabled selected>Service State</option>
+                        <option value="Operational">Operational</option>
+                        <option value="Outage">Outage</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/admin/footer %>
